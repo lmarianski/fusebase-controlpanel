@@ -9,6 +9,9 @@ import ChartCard from "./Cards/ChartCard.vue";
 import GeoChartCard from "./Cards/GeoChartCard.vue";
 import StatsCard from "./Cards/StatsCard.vue";
 
+import TableCard from "./Cards/TableCard.vue";
+
+
 import SidebarPlugin from "./SidebarPlugin/index";
 
 let components = {
@@ -19,7 +22,8 @@ let components = {
 	StatsCard,
 	PaperTable,
 	DropDown,
-	SidebarPlugin
+	SidebarPlugin,
+	TableCard
 };
 
 export default components;
@@ -33,5 +37,6 @@ export {
 	PaperTable,
 	DropDown,
 	Button,
-	SidebarPlugin
+	SidebarPlugin,
+	TableCard
 };

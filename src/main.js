@@ -10,6 +10,7 @@ Vue.use(PaperDashboard);
 Vue.use(Vuex);
 
 import io from "socket.io-client";
+import { type } from "os";
 let socket = io("http://localhost:8080/masters");
 
 google.charts.load('current', {
@@ -20,12 +21,30 @@ google.charts.load('current', {
 let store = new Vuex.Store({
 	state: {
 		slaves: [],
+		modules: [],
 		lastSlaveUpdate: Date.now()
 	},
 	mutations: {
 		UPDATE_SLAVES(state, slaves) {
 			state.slaves = slaves;
 			state.lastSlaveUpdate = Date.now();
+
+			slaves.forEach((s) => {
+				if (typeof s.platform === "object") {
+					s.platform.toStringFull = function() {
+						return `${this.toString()} on ${this.os.toString()}`;
+					}
+					s.platform.toString = function() {
+						return `${this.name} ${this.version}`;
+					}
+					s.platform.os.toString = function() {
+						return `${this.family} ${this.version?this.version:''} ${this.architecture===64?"x64":''}`;
+					}
+				}
+			})
+		},
+		UPDATE_MODULES(state, slaves) {
+			state.modules = slaves;
 		}
 	},
 	actions: {
@@ -33,6 +52,12 @@ let store = new Vuex.Store({
 			socket.emit("fetchSlaves");
 			socket.once("fetchSlavesResponse", (slaves) => {
 				context.commit("UPDATE_SLAVES", slaves)
+			})
+		},
+		fetchModules(context) {
+			socket.emit("fetchModules");
+			socket.once("fetchModulesResponse", (slaves) => {
+				context.commit("UPDATE_MODULES", slaves)
 			})
 		}
 	},
@@ -53,6 +78,14 @@ let store = new Vuex.Store({
 				platforms[p.platform]++;
 			});
 			return platforms;
+		},
+		getOSes: state => {
+			let OSes = {};
+			state.slaves.forEach((p) => {
+				if (!OSes[p.platform.os]) OSes[p.platform.os] = 0;
+				OSes[p.platform.os]++;
+			});
+			return OSes;
 		}
 	},
 	strict: true
@@ -67,6 +100,7 @@ new Vue({
 	},
 	mounted: function () {
 		this.$store.dispatch("fetchSlaves");
+		this.$store.dispatch("fetchModules");
 	},
 	render: h => h(App)
 }).$mount("#app");
@@ -75,6 +109,11 @@ socket.on("slaveUpdate", () => {
 	store.dispatch("fetchSlaves");
 })
 
+socket.on("moduleUpdate", () => {
+	store.dispatch("fetchModules");
+})
+
 setInterval(() => {
 	store.dispatch("fetchSlaves");
+	store.dispatch("fetchModules");
 }, 30000)
