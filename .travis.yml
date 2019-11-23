@@ -9,7 +9,7 @@ script:
   - npm test
 
 after_success:
-  - npm build
+  - npm run build
 
 deploy:
   provider: npm
