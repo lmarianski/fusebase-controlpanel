@@ -1,7 +1,6 @@
 {
-  "name": "fusebase-controlpanel",
+  "name": "@lukas2005/fusebase-controlpanel",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "build": "vue-cli-service build",
     "e2e": "node test/e2e/runner.js",
@@ -9,6 +8,9 @@
     "lint-fix": "vue-cli-service lint --fix",
     "dev": "vue-cli-service serve --open",
     "buildDev": "vue-cli-service build --mode dev"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
     "bootstrap": "^4.0.0",
@@ -18,7 +20,8 @@
     "vue": "^2.5.17",
     "vue-clickaway": "^2.1.0",
     "vue-notifyjs": "^0.3.0",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.9",
