@@ -5,8 +5,12 @@ node_js:
 git:
   depth: 1
 
-before_deploy:
-  - npm run build
+script:
+  - npm test
+  
+after_success:
+  - npm build
+
 
 deploy:
   provider: npm
