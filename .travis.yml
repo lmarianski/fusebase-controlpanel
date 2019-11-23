@@ -1,6 +1,13 @@
 language: node_js
 node_js:
-- '12'
+  - "12"
+
+git:
+  depth: 1
+
+before_deploy:
+  - npm run build
+
 deploy:
   provider: npm
   email: lmarianski@protonmail.com
@@ -8,5 +15,6 @@ deploy:
     secure: rkSXFvWnfq7l4MXWqa7avFumtmFTbhx3HDOuYlpKiGlcHE36ICzozzqjy6DEJ/oV3O901Uyw3gHeXCCO0oV8mPHuOA32lO7LY85qRvrJoiT6DMLLBTGguDWNmibKTcW/+rIQ4l320VGiaz/20i1e+j0rvO73ftD8OJT6ceDrnGJ08L+O5HYYPzgNEJwHQp02kMiaDtB6FEtF421SA73xyAZRA9P/Hom2uiKitSvIK/Wo5jUcZprm4qK+AwZq68B0TXSvEluMY6uFYeIFJVLx7Mly9yBQ62Ha8BkCjUH+o0nJcGyeS5Dl+P4Q4K+gh7TChbDrMA2U/zA3PCxa7akehrqj/ZSDy5VQcm8TZthBCHZnDfXR6NhpcXvR1mAoL6QUM2fE+iVdYP7SeoRanV4zSE4PHttxqZ+JExaIgZzzfuyvyoq48cVPgBy+K7FFY/M3JStQ7JPzGi7BN6tjBoeEyzUOdoSVs5jkfbNf0R+zS7YyxeGb9RXlnXNNMgku+sL0VDL8PbEIM1QBqR2FxNc3wa6pJkYy3P/2c/ON3jl2qaMrTm1zA4pNhMK70LPKEMropCZZhxU90YjOZu/xDP1y+56CGFDz+eDYGvULuIM0mh8BSZKC4xd2JZw3GEf6F93FsUf6Egd6x+6oLFWbP1Gkgv7RYQyQazd1ylwjtJpwkbM=
   on:
     repo: lukas2005/fusebase-controlpanel
+  skip_cleanup: true
 
 cache: npm
