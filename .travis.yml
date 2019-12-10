@@ -1,23 +1,17 @@
 language: node_js
 node_js:
-  - "12"
-
+- '12'
 git:
   depth: 1
-
 script:
-  - npm test
-
+- npm test
 after_success:
-  - npm run build
-
+- npm run build
 deploy:
-  - provider: npm
-    email: lmarianski@protonmail.com
-    api_key:
-      secure: rkSXFvWnfq7l4MXWqa7avFumtmFTbhx3HDOuYlpKiGlcHE36ICzozzqjy6DEJ/oV3O901Uyw3gHeXCCO0oV8mPHuOA32lO7LY85qRvrJoiT6DMLLBTGguDWNmibKTcW/+rIQ4l320VGiaz/20i1e+j0rvO73ftD8OJT6ceDrnGJ08L+O5HYYPzgNEJwHQp02kMiaDtB6FEtF421SA73xyAZRA9P/Hom2uiKitSvIK/Wo5jUcZprm4qK+AwZq68B0TXSvEluMY6uFYeIFJVLx7Mly9yBQ62Ha8BkCjUH+o0nJcGyeS5Dl+P4Q4K+gh7TChbDrMA2U/zA3PCxa7akehrqj/ZSDy5VQcm8TZthBCHZnDfXR6NhpcXvR1mAoL6QUM2fE+iVdYP7SeoRanV4zSE4PHttxqZ+JExaIgZzzfuyvyoq48cVPgBy+K7FFY/M3JStQ7JPzGi7BN6tjBoeEyzUOdoSVs5jkfbNf0R+zS7YyxeGb9RXlnXNNMgku+sL0VDL8PbEIM1QBqR2FxNc3wa6pJkYy3P/2c/ON3jl2qaMrTm1zA4pNhMK70LPKEMropCZZhxU90YjOZu/xDP1y+56CGFDz+eDYGvULuIM0mh8BSZKC4xd2JZw3GEf6F93FsUf6Egd6x+6oLFWbP1Gkgv7RYQyQazd1ylwjtJpwkbM=
-    edge:
-      branch: master
-    skip_cleanup: true
-
+  provider: npm
+  email: lmarianski@protonmail.com
+  api_key:
+    secure: ArjIpZ6zlgfG/HfnzYGqSWWYgZhRI0OF8JLz3khn713G2pO+eEz3acxqx68iaP/y3r7Ib/bGG6j5/dLpLPRj710lmWWcUnYl2yCK5/TdLyHDo7Qa7zuktB6BydDeay1oREp66RS6njyuY6dWjvgyrffrPKoA+vreYn4OLMe8k1Z1deOw7HQEgBF+w3dKqGJqcwRo2rKOh3kVmH+ETQhENW941VfOfvz+UH5f2PB8BeBj/Wm/KmGUji6KMOCI4WMghWcsTVFG/2sCnJjNqWWxDABxWVUWrXDVG+51uVORIMoQVOKXnmlsTF5cAEVpYPgMvfpOJa5YjGo0+R3K7Td81QUeWj8lzkftCuBAMVvXqiKxuBkm2pq82b59rUU/NKFyLJrRgglaw4lpzG7E4oFtge5wSEixUME6Q1ap8LRE4iWGaBfTh/hwD+uIVWoOI+dJtSyJ6OkcdvcpKXbuHr0Vg0rSfZ01QG06mPDl0gtA6bsmHkl3f2VN/atZhXs3zuo064T+YhEeqYm4pyM16/3qeWv1AjKkFKnv9gJo6tvKVDPUz1u/wneV8KwitaX/VHqVIbsVdZUNhQld4wOXGNpL7t/LcZ/7QPAEaq9WezmJoB0hK8lgGtwrawp6i86o9Lw82XR7vNIxEI7LU+4pRfioq8XAwh0hhkaLnI/gP1CsvVY=
+  on:
+    repo: lukas2005/fusebase-controlpanel
 cache: npm
