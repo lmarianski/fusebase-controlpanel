@@ -11,7 +11,7 @@ Vue.use(Vuex);
 
 import io from "socket.io-client";
 import { type } from "os";
-let socket = io("http://localhost:8080/masters");
+let socket = io(window.location.host.includes("localhost") ? "http://localhost:8080/masters" : "/masters");
 
 google.charts.load('current', {
 	'packages': ['geochart'],

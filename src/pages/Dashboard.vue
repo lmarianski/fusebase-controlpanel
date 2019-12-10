@@ -153,13 +153,15 @@ export default {
 		},
 		platformsChart() {
 
-			let labels = Object.keys(this.$store.getters.getPlatforms);
-			let series = Object.values(this.$store.getters.getPlatforms);
+			const platforms = this.$store.getters.getPlatforms;
+
+			let labels = Object.keys(platforms);
+			let series = Object.values(platforms);
 
 			console.log(labels)
 
-			let total = series.reduce((a, b) => a+b);
-			let percentages = series.map((el) => Math.round((el/total)*100));
+			let total = platforms.length > 0 ? series.reduce((a, b) => a+b) : 0;
+			let percentages = platforms.length > 0 ? series.map((el) => Math.round((el/total)*100)) : 0;
 
 			return {
 				data: {
@@ -172,14 +174,15 @@ export default {
 			};
 		},
 		osChart() {
+			const OSes = this.$store.getters.getOSes;
 
-			let labels = Object.keys(this.$store.getters.getOSes);
-			let series = Object.values(this.$store.getters.getOSes);
+			let labels = Object.keys(OSes);
+			let series = Object.values(OSes);
 
 			console.log(labels)
 
-			let total = series.reduce((a, b) => a+b);
-			let percentages = series.map((el) => Math.round((el/total)*100));
+			let total = OSes.length > 0 ? series.reduce((a, b) => a+b) : 0;
+			let percentages = OSes.length > 0 ? series.map((el) => Math.round((el/total)*100)) : 0;
 
 			return {
 				data: {
