@@ -1,5 +1,5 @@
 {
-  "name": "@lukas2005/fusebase-controlpanel",
+  "name": "@fusebase/controlpanel",
   "version": "1.0.1",
   "scripts": {
     "build": "vue-cli-service build",
