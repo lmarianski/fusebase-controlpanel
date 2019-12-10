@@ -8,7 +8,7 @@
     "lint-fix": "vue-cli-service lint --fix",
     "dev": "vue-cli-service serve --open",
     "buildDev": "vue-cli-service build --mode dev",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "bootstrap": "^4.0.0",
