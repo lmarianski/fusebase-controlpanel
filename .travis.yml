@@ -10,8 +10,7 @@ after_success:
 deploy:
   provider: npm
   email: lmarianski@protonmail.com
-  api_key:
-    secure: niQceFb1bZxnMMm/9g0FT6WpAIC/WNHKmgN3sZALpgQOqJBulRBUr74zvtrzh7UfNZHS3qDr9IHvJHwZWx0cnqh9IOHlyAXVS4+ucQv06pLLZW0eyEXu8O+7r2erlNr7hNAajbLpS67m/gBqAnusrzVX9CV0Z3ppT/Y/v2Dr+4/SAeKeb0/HvsXgcDwuIOprT9F5uw2wbS1NZbCwoRF+OAGRvowt/g+O1BCaDDsWNQ/ZfSZ8pokafFNM1WsEarByvi7M6Z29gztKaUV9ejwaZHFc1STWEEdUh12IIUfQq79rnewW7pYUwDpzjAFXtFQFLdEA8dRJkwZ+TGjd6JYmF32UZSA9/xQ9TTRuQ3JYpeFDWrQtRGWSytltZqumxO0q2VyEaUdNSIOUMi/OZGaFaDxcVhHF45g+Xz92QOhFehDE5FI14rZJbOc09+kHZbcR0pFvY1w3VVPIgvzoSiLS5hmaoJwwDj793O4VE4+1UyGfETkF3OfwXmq0uNpyK9r7mSP6DzpeYj0aO5kuhsCgkK/YBRtv5H21GjHe1nwaSodV4DRmI1mXfPttpa5PFfNu6R5ts++7MbS/ImgVBtjNkOskXWGcb2zz/vLPKHlR6wo9mdQ7zIlOJYvqN7EUpmh8cnll+rjvBtI8SL0KBVC0rZDIoKWPWqK5EDrrm6s8nVY=
+  api_key: $NPM_TOKEN
   on:
     repo: lukas2005/fusebase-controlpanel
   skip_cleanup: true

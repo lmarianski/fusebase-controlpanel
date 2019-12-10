@@ -10,6 +10,9 @@
     "buildDev": "vue-cli-service build --mode dev",
     "prepublishOnly": "npm run build"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "bootstrap": "^4.0.0",
     "chartist": "^0.11.4",
